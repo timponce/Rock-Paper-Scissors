@@ -1,0 +1,1 @@
+This is a project for The Odin Project. After learning JavaScript fundamentals I will now make a rock, paper, scissors program.
