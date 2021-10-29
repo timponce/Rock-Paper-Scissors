@@ -1,0 +1,56 @@
+body {
+    font-size: 24px;
+}
+
+.buttons {
+    display: flex;
+    padding: 5vh 5vw;
+}
+
+.selection {
+    flex: 1;
+    font-size: 32px;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+.resultsHeader {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    column-gap: 8px;
+}
+
+.playerCurrentScore, 
+.playerTitle, 
+.vs, 
+.compTitle, 
+.computerCurrentScore {
+    flex: 1;
+    font-weight: bold;
+}
+
+.resultsMain {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    column-gap: 8px;
+}
+
+.playerScoreBoard, 
+.playerSelections, 
+.versus, 
+.computerSelections, 
+.computerScoreBoard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
