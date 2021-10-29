@@ -1,126 +1,16 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
+        <meta charset="UTF-8">
+        <link rel=stylesheet href="style.css">
+        <script src="scripts.js" defer></script>
     </head>
     <body>
         <h1>Rock, Paper, Scissors</h1>
-        <h3>Best of Five Rounds</h3>
-        <div class='form'>
-            <label for='userSelection'>Type your selection: </label>
-            <input type='text' id='userSelection' class='userSelection'>
-            <input type='submit' value='Confirm Selection' class='confirmSelection'>
+        <div class="buttons">
+            <button class="selection" data-selection="rock">ROCK</button>
+            <button class="selection" data-selection="paper">PAPER</button>
+            <button class="selection" data-selection="scissors">SCISSORS</button>
         </div>
-        <div class='results'>
-            <strong><p class='errors'></p></strong>
-            <p>Your selection:</p>
-            <p class='playerGuess'></p>
-            <p>Computer selection:</p>
-            <p class='computerGuess'></p>
-            <p class='roundResult'></p>
-            <p class='gameResult'></p>
-        </div>
-        <script>
-            const userSelection = document.querySelector('.userSelection');
-            const confirmSelection = document.querySelector('.confirmSelection');
-            const errors = document.querySelector('.errors');
-            const playerGuess = document.querySelector('.playerGuess');        
-            const computerGuess = document.querySelector('.computerGuess');            
-            const roundResult = document.querySelector('.roundResult');
-            const gameResult = document.querySelector('.gameResult');
-
-            let playerScore = 0;
-            let computerScore = 0;
-            let winner = '';
-            let computerSelection;
-            let playerSelection;
-            declareWinner()
-            //generates random string: Rock, Paper, or Scissors
-            function computerPlay () {
-                //generates random number 1, 2, or 3
-                let computerSelection = Math.floor(Math.random()*3) + 1;
-                //converts random number to string
-                if (computerSelection === 1) {
-                    return 'rock'
-                }
-                else if (computerSelection === 2) {
-                    return 'paper'
-                }
-                else if (computerSelection === 3) {
-                    return 'scissors'
-                }
-                console.log(computerPlay)
-            }
-            function playRound () {
-                computerSelection = computerPlay();
-                const playerSelection = document.getElementById('userSelection').value.toLowerCase();
-                //I would like to clear the input field after submitting but don't know how after a few attempts
-                console.log(playerSelection);
-                console.log(computerSelection);
-                if (playerSelection != 'rock' && playerSelection != 'paper' && playerSelection != 'scissors') {
-                    roundResult.textContent = '';
-                    errors.textContent = 'Please enter a valid selection';
-                } else if (playerSelection === computerSelection) {
-                    playerGuess.textContent = playerSelection;
-                    computerGuess.textContent = computerSelection;
-                    roundResult.textContent = 'It\'s a tie! Go again.';
-                    errors.textContent = '';
-                //    alert('It\'s a tie! Go again.');
-                } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-                    playerGuess.textContent = playerSelection;
-                    computerGuess.textContent = computerSelection;
-                    roundResult.textContent = 'Paper beats rock. You lose this round.';
-                    computerScore = ++computerScore;
-                    errors.textContent = '';
-                //    alert('Paper beats rock. You lose!');
-                } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-                    playerGuess.textContent = playerSelection;
-                    computerGuess.textContent = computerSelection;
-                    roundResult.textContent = 'Rock beats scissors. You win this round.';
-                    playerScore = ++playerScore;
-                    errors.textContent = '';
-                //    alert('Rock beats scissors. You win!');
-                } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-                    playerGuess.textContent = playerSelection;
-                    computerGuess.textContent = computerSelection;
-                    roundResult.textContent = 'Paper beats rock. You win this this round.';
-                    playerScore = ++playerScore;
-                    errors.textContent = '';
-                //    alert('Paper beats rock. You win!');
-                } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-                    playerGuess.textContent = playerSelection;
-                    computerGuess.textContent = computerSelection;
-                    roundResult.textContent = 'Scissors beats paper. You lose this round.';
-                    computerScore = ++computerScore;
-                    errors.textContent = '';
-                //    alert('Scissors beats paper. You lose!');
-                } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-                    playerGuess.textContent = playerSelection;
-                    computerGuess.textContent = computerSelection;
-                    roundResult.textContent = 'Rock beats scissors. You lose this round.';
-                    computerScore = ++computerScore;
-                    errors.textContent = '';
-                //    alert('Rock beats scissors. You lose!');
-                } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-                    playerGuess.textContent = playerSelection;
-                    computerGuess.textContent = computerSelection;
-                    roundResult.textContent = 'Scissors beats paper. You win this round.';
-                    playerScore = ++playerScore;                   
-                    errors.textContent = '';
-                //    alert('Scissors beats paper. You win!');
-                }
-            }
-            function declareWinner () {
-                if (playerScore >= 5) {
-                    alert('YOU WIN!\r\nPlease refresh the page to play again.');
-                } else if (computerScore >= 5) {
-                    alert('YOU LOSE!\r\nPlease refresh the pageto play again.');
-                }
-            }
-
-            confirmSelection.addEventListener('click', playRound);
-            confirmSelection.addEventListener('click', declareWinner);
-        </script>
     </body>
 </html>
