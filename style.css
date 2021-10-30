@@ -14,43 +14,8 @@ body {
     border-radius: 4px;
 }
 
-.resultsHeader {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    column-gap: 8px;
-}
-
-.playerCurrentScore, 
-.playerTitle, 
-.vs, 
-.compTitle, 
-.computerCurrentScore {
-    flex: 1;
-    font-weight: bold;
-}
-
-.resultsMain {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    column-gap: 8px;
-}
-
-.playerScoreBoard, 
-.playerSelections, 
-.versus, 
-.computerSelections, 
-.computerScoreBoard {
-    flex: 1;
+.content {
     display: flex;
     flex-direction: column;
-}
-
-.green {
-    color: green;
-}
-
-.red {
-    color: red;
+    align-items: center;
 }
